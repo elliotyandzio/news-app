@@ -30,7 +30,7 @@ class News extends Component {
           <div>
             <h1>{!this.props.selectedCountry ? '' : this.props.selectedCountry} News Section!!</h1>
             {data.length > 0 ? 
-                data.map((article, index) => <Article  key={index} articleData={article} />)
+                data.map((article, index) => <Article key={index} articleData={article} />)
                 :
                 <p>Select a country to see the latest headlines</p>
             }
