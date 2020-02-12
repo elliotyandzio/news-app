@@ -1,0 +1,44 @@
+.c-country-selector {
+    display: flex;
+    justify-content: space-evenly;
+    width: 75%;
+    margin: 0 auto; 
+
+    button {
+        width: 15%;
+        text-decoration: none;
+        border-radius: 5px;
+        height: 100px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: 0;
+        line-height: 14;
+        background-color: lightgrey;
+        font-size: 16px;
+
+        &#UK {
+            background-image: url('../assets/uk.png');
+        }
+
+        &#US {
+            background-image: url('../assets/us.png');
+        }
+
+        &#FR {
+            background-image: url('../assets/france.png');
+        }
+
+        &#AU {
+            background-image: url('../assets/australia.png');
+        }
+
+        &#IN {
+            background-image: url('../assets/india.png');
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
