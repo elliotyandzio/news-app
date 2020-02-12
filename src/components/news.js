@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Article from './article';
 
 class News extends Component {
   constructor(props) {
@@ -24,8 +25,16 @@ class News extends Component {
 
   render() {
       {console.log(this.state.data)}
+      const { data } = this.state;
       return (
-          <h1>{!this.props.selectedCountry ? '' : this.props.selectedCountry} News Section!!</h1>
+          <div>
+            <h1>{!this.props.selectedCountry ? '' : this.props.selectedCountry} News Section!!</h1>
+            {data.length > 0 ? 
+                data.map((article, index) => <Article  key={index} articleData={article} />)
+                :
+                <p>Select a country to see the latest headlines</p>
+            }
+          </div>
       )
   }
 }
