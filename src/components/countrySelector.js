@@ -7,23 +7,23 @@ class CountrySelector extends Component {
             countries: [
                 {
                     name: 'United Kingdom',
-                    id: 'UK',
+                    id: 'gb',
                 },
                 {
                     name: 'United States',
-                    id: 'US',
+                    id: 'us',
                 },
                 {
                     name: 'France',
-                    id: 'FR',
+                    id: 'fr',
                 },
                 {
                     name: 'Australia',
-                    id: 'AU',
+                    id: 'au',
                 },
                 {
                     name: 'India',
-                    id: 'IN',
+                    id: 'in',
                 }
             ]
         };
@@ -38,7 +38,7 @@ class CountrySelector extends Component {
         const { countries } = this.state;
         return ( 
             <div>
-                <h1>Country Selector</h1>
+                <h1>Select A Country</h1>
                 <div className="c-country-selector">
                 {countries.map(country => (
                     <button key={country.id} id={country.id} onClick={this.getCountryCode}>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CountrySelector from './components/countrySelector';
+import News from './components/news';
 
 class App extends Component {
   constructor(props) {
@@ -14,10 +15,11 @@ class App extends Component {
   }
 
   render() {
+    let { selectedCountry } = this.state;
     return (
       <div className="App">
-        {!this.state.selectedCountry ? 'no country selected' : this.state.selectedCountry}
         <CountrySelector getSelectedCountry={this.getSelectedCountry}/>
+        <News selectedCountry={selectedCountry}/>
       </div>
     );
   }
