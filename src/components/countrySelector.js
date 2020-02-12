@@ -29,14 +29,19 @@ class CountrySelector extends Component {
         };
     }
 
+    getCountryCode = (e) => {
+        const { getSelectedCountry } = this.props;
+        getSelectedCountry(e.target.id);
+    }
+
     render() {
-        let { countries } = this.state;
+        const { countries } = this.state;
         return ( 
             <div>
                 <h1>Country Selector</h1>
                 <div className="c-country-selector">
                 {countries.map(country => (
-                    <button key={country.id} id={country.id}>
+                    <button key={country.id} id={country.id} onClick={this.getCountryCode}>
                         {country.name}
                     </button>
                 ))}
