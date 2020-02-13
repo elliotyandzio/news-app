@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment'
 
 const Article = ({articleData}) => {
     const {title, description, url, urlToImage, publishedAt, source } = articleData;
@@ -9,7 +10,7 @@ const Article = ({articleData}) => {
             <p className="c-article__description">{description}</p>
             <a className="c-article__url" href={url}>Read full article...</a>
             <img className="c-article__img" src={urlToImage} />
-            <p className="c-article__publishedAt">{publishedAt}</p>
+            <p className="c-article__publishedAt">{moment(publishedAt).format('LLL')}</p>
             <p className="source">Source - {source.name}</p>
         </div>
     )
