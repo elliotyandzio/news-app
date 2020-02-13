@@ -3,15 +3,17 @@ import moment from 'moment'
 
 const Article = ({articleData}) => {
     const {title, description, url, urlToImage, publishedAt, source } = articleData;
-    {console.log(source)}
+    {console.log(articleData)}
     return(
         <div className="c-article">
-            <h1 className="c-article__title">{title}</h1>
-            <p className="c-article__description">{description}</p>
-            <a className="c-article__url" href={url}>Read full article...</a>
             <img className="c-article__img" src={urlToImage} />
-            <p className="c-article__publishedAt">{moment(publishedAt).format('LLL')}</p>
-            <p className="source">Source - {source.name}</p>
+            <div className="c-article-card">
+                <h1 className="c-article-card__title">{title}</h1>
+                <p className="c-article-card__publishedAt">{moment(publishedAt).format('LLL')}</p>
+                <p className="c-article-card__description">{description}</p>
+                <a className="c-article-card__url" href={url}>Read full article...</a>
+            </div>
+
         </div>
     )
 }
