@@ -44,17 +44,5 @@
             height:100%;
             color: $black;
         }
-
-        &__description {
-            display: none;
-            color: grey;
-        }
-
-        &__url {
-            text-decoration: none;
-            color: $red;
-            position: absolute;
-            bottom: 10px;
-        }
     }
 }
