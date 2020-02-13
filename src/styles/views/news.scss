@@ -1,0 +1,11 @@
+.c-news {
+    @media only screen and (min-width: $screen-sm) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    &__title {
+        width: 100%;
+    }
+}

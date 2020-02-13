@@ -27,8 +27,8 @@ class News extends Component {
       {console.log(this.state.data)}
       const { data } = this.state;
       return (
-          <div>
-            <h1>{!this.props.selectedCountry ? '' : this.props.selectedCountry} News Section!!</h1>
+          <div className="c-news">
+            <h1 className="c-news__title">{!this.props.selectedCountry ? '' : this.props.selectedCountry} News Section!!</h1>
             {data.length > 0 ? 
                 data.map((article, index) => <Article key={index} articleData={article} />)
                 :
