@@ -32,7 +32,8 @@ class CountrySelector extends Component {
 
     getCountryCode = (e) => {
         const { getSelectedCountry } = this.props;
-        getSelectedCountry(e.target.id);
+        const selectedCountryName = e.target.getAttribute('name')
+        getSelectedCountry(e.target.id, selectedCountryName);
     }
 
     render() {
@@ -60,7 +61,7 @@ class CountrySelector extends Component {
             <div className="c-country-selector">
                 <Slider {...settings}>
                 {countries.map(country => (
-                    <div className="c-country-selector__item" key={country.id} id={country.id} onClick={this.getCountryCode}>
+                    <div className="c-country-selector__item" key={country.id} id={country.id} name={country.name} onClick={this.getCountryCode}>
                         <p>{country.name}</p>
                     </div>
                 ))}
