@@ -5,11 +5,17 @@
     -webkit-box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.15);
     -moz-box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.15);
     box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.15);
-    text-decoration: none;
     display: block;
+    text-decoration: none;
 
     @media only screen and (min-width: $screen-sm) {
-        width: 45%;
+        width: calc(50% - 40px);
+        position: relative;
+        padding-bottom: 30px;
+    }
+
+    @media only screen and (min-width: $screen-lg) {
+        width: calc(33% - 30px);
         position: relative;
         padding-bottom: 30px;
     }
@@ -17,20 +23,41 @@
     &:first-of-type {
         @media only screen and (min-width: $screen-sm) {
             width: 100%;
-        }
-    }
-
-    &:not(:first-of-type) {
-        @media only screen and (min-width: $screen-sm) {
+            
             img {
-                height: 195px;
+                height: auto;
+            }
+        }
+
+        @media only screen and (min-width: $screen-lg) {
+            width: calc(66% - 30px);
+
+            img {
+                height: 500px;
                 object-fit: cover;
+                object-position: top;
             }
         }
     }
 
     &__img {
         width: 100%;
+
+        @media only screen and (min-width: $screen-sm) {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        @media only screen and (min-width: $screen-md) {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        @media only screen and (min-width: $screen-lg) {
+            height: 300px;
+            object-fit: cover;
+            object-position: top;
+        }
     }
 
     &-card {
@@ -43,6 +70,10 @@
             flex-direction: column;
             height:100%;
             color: $black;
+        }
+
+        &__publishedAt {
+            color: $red;
         }
     }
 }

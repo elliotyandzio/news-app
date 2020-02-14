@@ -2,7 +2,7 @@
     @media only screen and (min-width: $screen-sm) {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-around;
     }
 
     &__title {
