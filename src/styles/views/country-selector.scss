@@ -1,19 +1,23 @@
 .c-country-selector {
-    display: flex;
-    justify-content: space-evenly;
     width: 75%;
-    margin: 0 auto; 
+    margin:0 auto;
+    margin-top: 25px;
 
-    button {
-        width: 15%;
+    @media only screen and (min-width: $screen-sm) {
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    .c-country-selector__item {
+        width: 200px;
         text-decoration: none;
         border-radius: 5px;
-        height: 100px;
+        height: 50px;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        margin: 0;
-        line-height: 14;
+        // margin: 0 10px;
+        // line-height: 14;
         background-color: lightgrey;
         font-size: 16px;
 
@@ -39,6 +43,38 @@
 
         &:hover {
             cursor: pointer;
+        }
+    }
+
+    .slick-prev {
+        &:before {
+            color: $black;
+        }
+    }
+
+    .slick-next {
+        &:before {
+            color: $black;
+        }
+    }
+
+    .slick-track {
+        @media only screen and (min-width: $screen-sm) {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    .slick-slide {
+        margin-right: 20px;
+        width: 100px;
+
+        @media only screen and (min-width: $screen-sm) {
+            width: 100px;
+        }
+
+        @media only screen and (min-width: $screen-md) {
+            width: 150px;
         }
     }
 }

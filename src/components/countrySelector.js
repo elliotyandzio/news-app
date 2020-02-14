@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Slider from "react-slick";
 
 class CountrySelector extends Component {
     constructor(props) {
@@ -36,17 +37,35 @@ class CountrySelector extends Component {
 
     render() {
         const { countries } = this.state;
-        return ( 
-            <div>
-                <h1>Select A Country</h1>
-                <div className="c-country-selector">
+        const settings = {
+            infinite: true,
+            slidesToShow: 2,
+            slidesToScroll: 1,  
+            variableWidth: true,
+            responsive: [
+                {
+                  breakpoint: 576
+                },
+                {
+                  breakpoint: 10000, // a unrealistically big number to cover up greatest screen resolution
+                  settings: {
+                    slidesToShow: 5,
+                    dots: false,
+                    arrows: false
+                  }
+                }
+            ],
+          };
+        return (             
+            <div className="c-country-selector">
+                <Slider {...settings}>
                 {countries.map(country => (
-                    <button key={country.id} id={country.id} onClick={this.getCountryCode}>
-                        {country.name}
-                    </button>
+                    <div className="c-country-selector__item" key={country.id} id={country.id} onClick={this.getCountryCode}>
+                        <p>{country.name}</p>
+                    </div>
                 ))}
-                </div>
-            </div>
+                </Slider>
+            </div>    
         )
     }
 }
