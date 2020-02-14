@@ -3,8 +3,8 @@ I was given the task to create a news application that returned the top 5 headli
 
 ## How to run the project
 <ul>
-    <li>run `npm install`</li>
-    <li>run `npm run start` to run the project on http://locaslhost:3000</li>
+    <li>run npm install</li>
+    <li>run npm run start to run the project on http://locaslhost:3000</li>
 </ul>
 
 ## Project Structure
