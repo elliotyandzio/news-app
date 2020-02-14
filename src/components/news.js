@@ -6,14 +6,16 @@ class News extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [] //Store the data returned from the api
     }
   }
 
+  //When the component mounts, run the returnNewsData function to retrive the data
   componentDidMount() {
     this.returnNewsData();
   }
 
+  //When the component updates and has new props run the returnNewsData function with the new variables
   componentDidUpdate(prevProps) {
     let { selectedCountryCode } = this.props;
     if (selectedCountryCode !== prevProps.selectedCountryCode) {
@@ -21,6 +23,8 @@ class News extends Component {
     }
   }
 
+
+  //Funnction to return the top 5 news stories from the api
   async returnNewsData() {
     let { selectedCountryCode } = this.props;
     try {
@@ -37,12 +41,8 @@ class News extends Component {
       const { selectedCountryName } = this.props;
       return (
           <div className="c-news">
-            <h1 className="c-news__title">{!this.props.selectedCountryCode ? '' : `${selectedCountryName} latest news`}</h1>
-            {data.length > 0 ? 
-                data.map((article, index) => <Article key={index} articleData={article} />)
-                :
-                <p className="c-news__noCountry">Select a country for the latest headlines</p>
-            }
+            <h1 className="c-news__title">{selectedCountryName} latest news</h1>
+            {data.map((article, index) => <Article key={index} articleData={article} />)}
           </div>
       )
   }
