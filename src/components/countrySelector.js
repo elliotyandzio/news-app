@@ -7,11 +7,11 @@ class CountrySelector extends Component {
         this.state = {
             countries: [
                 {
-                    name: 'United Kingdom',
+                    name: 'UK',
                     id: 'gb',
                 },
                 {
-                    name: 'United States',
+                    name: 'US',
                     id: 'us',
                 },
                 {

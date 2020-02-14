@@ -16,10 +16,13 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        // margin: 0 10px;
-        // line-height: 14;
-        background-color: lightgrey;
+        text-align: center;
         font-size: 16px;
+        border: none;
+
+        @media only screen and (min-width: $screen-md) {
+            height: 80px;
+        }
 
         &#gb {
             background-image: url('../../assets/uk.png');
@@ -43,6 +46,14 @@
 
         &:hover {
             cursor: pointer;
+        }
+
+        p {
+            margin-top: 50px;
+
+            @media only screen and (min-width: $screen-md) {
+                margin-top: 80px;
+            }
         }
     }
 
