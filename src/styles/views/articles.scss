@@ -55,7 +55,7 @@
 
         @media only screen and (min-width: $screen-lg) {
             height: 300px;
-            object-fit: cover;
+            object-fit: fill;
             object-position: top;
         }
     }
