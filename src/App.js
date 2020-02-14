@@ -20,9 +20,9 @@ class App extends Component {
   render() {
     let { selectedCountryCode, selectedCountryName } = this.state;
     return (
-      <div className="App">
+      <div className="app">
         <CountrySelector getSelectedCountry={this.getSelectedCountry}/>
-        {!selectedCountryCode ? 'Please select a country' : <News selectedCountryCode={selectedCountryCode} selectedCountryName={selectedCountryName}/>}
+        {!selectedCountryCode ? <p className="app-helper">Please select a country</p> : <News selectedCountryCode={selectedCountryCode} selectedCountryName={selectedCountryName}/>}
       </div>
     );
   }
