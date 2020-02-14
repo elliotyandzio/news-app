@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <div className="app">
         <CountrySelector getSelectedCountry={this.getSelectedCountry}/>
-        {!selectedCountryCode ? <p className="app-helper">Please select a country</p> : <News selectedCountryCode={selectedCountryCode} selectedCountryName={selectedCountryName}/>}
+        {!selectedCountryCode ? <p className="app-helper">International news updates - Select a country</p> : <News selectedCountryCode={selectedCountryCode} selectedCountryName={selectedCountryName}/>}
       </div>
     );
   }
