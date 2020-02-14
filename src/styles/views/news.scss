@@ -1,0 +1,14 @@
+.c-news {
+    @media only screen and (min-width: $screen-sm) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-top: 30px;
+    }
+
+    &__title {
+        width: 100%;
+        text-align: center;
+        font-size: $font-large;
+    }
+}

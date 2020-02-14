@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Slider from "react-slick";
 
 class CountrySelector extends Component {
     constructor(props) {
@@ -6,11 +7,11 @@ class CountrySelector extends Component {
         this.state = {
             countries: [
                 {
-                    name: 'United Kingdom',
+                    name: 'UK',
                     id: 'gb',
                 },
                 {
-                    name: 'United States',
+                    name: 'US',
                     id: 'us',
                 },
                 {
@@ -29,24 +30,46 @@ class CountrySelector extends Component {
         };
     }
 
-    getCountryCode = (e) => {
+    //function that runs when the users clicks a country. It grabs the name and id of the clicked element.
+    //It then calls the callback function passed through props from the app component and adds the data as the
+    //parameters of the function.
+    getSelectedCountryDetails = (e) => {
         const { getSelectedCountry } = this.props;
-        getSelectedCountry(e.target.id);
+        const selectedCountryName = e.target.getAttribute('name')
+        getSelectedCountry(e.target.id, selectedCountryName);
     }
 
     render() {
         const { countries } = this.state;
-        return ( 
-            <div>
-                <h1>Select A Country</h1>
-                <div className="c-country-selector">
+        const settings = { //Carousel settings
+            infinite: true,
+            slidesToShow: 2,
+            slidesToScroll: 1,  
+            variableWidth: true,
+            responsive: [
+                {
+                  breakpoint: 576
+                },
+                {
+                  breakpoint: 10000, // a unrealistically big number to cover up greatest screen resolution
+                  settings: {
+                    slidesToShow: 5,
+                    dots: false,
+                    arrows: false
+                  }
+                }
+            ],
+          };
+        return (             
+            <div className="c-country-selector">
+                <Slider {...settings}>
                 {countries.map(country => (
-                    <button key={country.id} id={country.id} onClick={this.getCountryCode}>
-                        {country.name}
-                    </button>
+                    <div className="c-country-selector__item" key={country.id} id={country.id} name={country.name} onClick={this.getSelectedCountryDetails}>
+                        <p>{country.name}</p>
+                    </div>
                 ))}
-                </div>
-            </div>
+                </Slider>
+            </div>    
         )
     }
 }

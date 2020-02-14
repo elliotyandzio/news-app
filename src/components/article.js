@@ -1,17 +1,16 @@
 import React from 'react';
+import moment from 'moment'
 
 const Article = ({articleData}) => {
-    const {title, description, url, urlToImage, publishedAt, source } = articleData;
-    {console.log(source)}
+    const {title, url, urlToImage, publishedAt } = articleData;
     return(
-        <div className="c-article">
-            <h1 className="c-article__title">{title}</h1>
-            <p className="c-article__description">{description}</p>
-            <a className="c-article__url" href={url}>Read full article...</a>
+        <a href={url} className="c-article">
             <img className="c-article__img" src={urlToImage} />
-            <p className="c-article__publishedAt">{publishedAt}</p>
-            <p className="source">Source - {source.name}</p>
-        </div>
+            <div className="c-article-card">
+                <p className="c-article-card__publishedAt">{moment(publishedAt).format('LLL')}</p>
+                <h1 className="c-article-card__title">{title}</h1>
+            </div>
+        </a>
     )
 }
 

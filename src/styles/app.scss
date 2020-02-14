@@ -1,1 +1,5 @@
-@import './country-selector.scss';
+@import './variables.scss';
+@import './base.scss';
+@import './views/countrySelector.scss';
+@import './views/news.scss';
+@import './views/article.scss';
