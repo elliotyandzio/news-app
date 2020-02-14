@@ -1,21 +1,28 @@
 .c-country-selector {
-    display: flex;
-    justify-content: space-evenly;
     width: 75%;
-    margin: 0 auto; 
+    margin:0 auto;
+    margin-top: 25px;
 
-    button {
-        width: 15%;
+    @media only screen and (min-width: $screen-sm) {
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    .c-country-selector__item {
+        width: 200px;
         text-decoration: none;
         border-radius: 5px;
-        height: 100px;
+        height: 50px;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        margin: 0;
-        line-height: 14;
-        background-color: lightgrey;
+        text-align: center;
         font-size: 16px;
+        border: none;
+
+        @media only screen and (min-width: $screen-md) {
+            height: 80px;
+        }
 
         &#gb {
             background-image: url('../../assets/uk.png');
@@ -39,6 +46,46 @@
 
         &:hover {
             cursor: pointer;
+        }
+
+        p {
+            margin-top: 50px;
+
+            @media only screen and (min-width: $screen-md) {
+                margin-top: 80px;
+            }
+        }
+    }
+
+    .slick-prev {
+        &:before {
+            color: $black;
+        }
+    }
+
+    .slick-next {
+        &:before {
+            color: $black;
+        }
+    }
+
+    .slick-track {
+        @media only screen and (min-width: $screen-sm) {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    .slick-slide {
+        margin-right: 20px;
+        width: 100px;
+
+        @media only screen and (min-width: $screen-sm) {
+            width: 100px;
+        }
+
+        @media only screen and (min-width: $screen-md) {
+            width: 150px;
         }
     }
 }
