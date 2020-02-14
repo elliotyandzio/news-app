@@ -30,7 +30,10 @@ class CountrySelector extends Component {
         };
     }
 
-    getCountryCode = (e) => {
+    //function that runs when the users clicks a country. It grabs the name and id of the clicked element.
+    //It then calls the callback function passed through props from the app component and adds the data as the
+    //parameters of the function.
+    getSelectedCountryDetails = (e) => {
         const { getSelectedCountry } = this.props;
         const selectedCountryName = e.target.getAttribute('name')
         getSelectedCountry(e.target.id, selectedCountryName);
@@ -38,7 +41,7 @@ class CountrySelector extends Component {
 
     render() {
         const { countries } = this.state;
-        const settings = {
+        const settings = { //Carousel settings
             infinite: true,
             slidesToShow: 2,
             slidesToScroll: 1,  
@@ -61,7 +64,7 @@ class CountrySelector extends Component {
             <div className="c-country-selector">
                 <Slider {...settings}>
                 {countries.map(country => (
-                    <div className="c-country-selector__item" key={country.id} id={country.id} name={country.name} onClick={this.getCountryCode}>
+                    <div className="c-country-selector__item" key={country.id} id={country.id} name={country.name} onClick={this.getSelectedCountryDetails}>
                         <p>{country.name}</p>
                     </div>
                 ))}
