@@ -6,20 +6,21 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedCountry: ''
+      selectedCountryCode: '',
+      selectedCountryName: ''
     }
   }
 
-  getSelectedCountry = (selectedCountry) => {
-    this.setState({selectedCountry})
+  getSelectedCountry = (selectedCountryCode, selectedCountryName) => {
+    this.setState({selectedCountryCode, selectedCountryName})
   }
 
   render() {
-    let { selectedCountry } = this.state;
+    let { selectedCountryCode, selectedCountryName } = this.state;
     return (
       <div className="App">
         <CountrySelector getSelectedCountry={this.getSelectedCountry}/>
-        <News selectedCountry={selectedCountry}/>
+        <News selectedCountryCode={selectedCountryCode} selectedCountryName={selectedCountryName}/>
       </div>
     );
   }

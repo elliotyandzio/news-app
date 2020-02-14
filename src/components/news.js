@@ -11,10 +11,10 @@ class News extends Component {
   }
 
   async componentDidUpdate(prevProps) {
-    let { selectedCountry } = this.props;
-    if (selectedCountry !== prevProps.selectedCountry) {
+    let { selectedCountryCode } = this.props;
+    if (selectedCountryCode !== prevProps.selectedCountry) {
         try {
-            const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=${selectedCountry}&pageSize=5&apiKey=2d5e0a0ed47a4343a0a5125e191bc8f4`);
+            const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=${selectedCountryCode}&pageSize=5&apiKey=2d5e0a0ed47a4343a0a5125e191bc8f4`);
             const data = response.data.articles;
             this.setState({ data });
         } catch (e) {
@@ -24,15 +24,15 @@ class News extends Component {
 }
 
   render() {
-      {console.log(this.state.data)}
       const { data } = this.state;
+      const { selectedCountryName } = this.props;
       return (
           <div className="c-news">
-            <h1 className="c-news__title">{!this.props.selectedCountry ? '' : this.props.selectedCountry} News Section!!</h1>
+            <h1 className="c-news__title">{!this.props.selectedCountryCode ? '' : `${selectedCountryName} latest news`}</h1>
             {data.length > 0 ? 
                 data.map((article, index) => <Article key={index} articleData={article} />)
                 :
-                <p>Select a country to see the latest headlines</p>
+                <p className="c-news__noCountry">Select a country for the latest headlines</p>
             }
           </div>
       )

@@ -2,9 +2,7 @@ import React from 'react';
 import moment from 'moment'
 
 const Article = ({articleData}) => {
-
     const {title, url, urlToImage, publishedAt } = articleData;
-    {console.log(articleData)}
     return(
         <a href={url} className="c-article">
             <img className="c-article__img" src={urlToImage} />
