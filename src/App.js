@@ -20,7 +20,7 @@ class App extends Component {
     return (
       <div className="App">
         <CountrySelector getSelectedCountry={this.getSelectedCountry}/>
-        <News selectedCountryCode={selectedCountryCode} selectedCountryName={selectedCountryName}/>
+        {!selectedCountryCode ? 'Please select a country' : <News selectedCountryCode={selectedCountryCode} selectedCountryName={selectedCountryName}/>}
       </div>
     );
   }
